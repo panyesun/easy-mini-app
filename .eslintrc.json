@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "no-tabs": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "no-extra-boolean-cast": 1,
+    "no-extra-semi": 1,
+    "no-extra-parens": 0,
+    "no-empty":1,
+    "quotes": [0, "double"]
+  }
+}

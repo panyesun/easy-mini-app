@@ -1,2 +1,2 @@
 # easy-mini-app
-easy to edit-mini-apps
+easy to edit mini-apps

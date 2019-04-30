@@ -34,7 +34,20 @@
 - root
     - js
     - json
-    - less
+    - less -> wxss
 
 
-### 打包操作
+### gulp工作流
+
+    1. page/components 中的wxml需要监听
+    2. page/components 中的less需要编译监听
+    3. page/components 中的js需要监听
+    4. page/components 中的json需要监听
+
+    5. env/utils 中的js需要监听 打包压缩
+
+    6.static中的文件原封不动，图片文件可考虑压缩
+
+    7.根目录下的less需编译，其余监听
+
+

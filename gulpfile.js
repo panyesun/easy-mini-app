@@ -71,10 +71,10 @@ gulp.task(env_utils);
 const staticFontPath = [`${srcPath}static/font/*`],
   staticJsPath = [`${srcPath}static/js/*`, `${srcPath}static/js/*/**`],
   staticImagePath = [
-    `${srcPath}static/image/*.{png,jpg,jpeg,gif,ico}`,
-    `${srcPath}static/image/**/*.{png,jpg,jpeg,gif,ico}`
+    `${srcPath}static/image/*.{png,jpg,jpeg,gif,ico,svg}`,
+    `${srcPath}static/image/**/*.{png,jpg,jpeg,gif,ico,svg}`
   ],
-  root_files = [`${srcPath}/*`, `!${srcPath}/*.less`];
+  root_files = [`${srcPath}*`, `!${srcPath}*.less`];
 
 const static_copy = () => {
   return gulp

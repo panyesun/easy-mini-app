@@ -1,13 +1,21 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/authorize/authorize",
+    "pages/userCenter/userCenter",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "研学文化",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#4DB5C8",
+    "list": [
+      { "pagePath": "pages/authorize/authorize", "text": "首页" },
+      { "pagePath": "pages/userCenter/userCenter", "text": "个人中心" }
+    ]
+  }
 }

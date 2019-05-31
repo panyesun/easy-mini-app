@@ -12,9 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
-	"appid": "wx39210c821ab5e108",
-	"projectname": "miniAppTemplate",
+	"libVersion": "2.7.0",
+	"appid": "wx1777512148c7b2b6",
+	"projectname": "yanxue",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

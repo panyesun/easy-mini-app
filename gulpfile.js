@@ -15,7 +15,7 @@ const srcPath = "src/",
   distPath = "dist/",
   wxmlPath = [`${srcPath}pages/**/*.wxml`, `${srcPath}components/**/*.wxml`],
   lessPath = [`${srcPath}pages/**/*.less`, `${srcPath}components/**/*.less`],
-  rootlessPath = [`${srcPath}*.less`],
+  rootlessPath = [`${srcPath}*.less`, `!${srcPath}variable.less`],
   jsPath = [`${srcPath}pages/**/*.js`, `${srcPath}components/**/*.js`],
   jsonPath = [`${srcPath}pages/**/*.json`, `${srcPath}components/**/*.json`],
   envUtilsPath = [`${srcPath}env/*.js`, `${srcPath}utils/*.js`];
@@ -88,12 +88,38 @@ const static_copy = () => {
 };
 gulp.task(static_copy);
 
+//template模板文件
+const templateWxmlPath = [`${srcPath}template/*/**.wxml`],
+  templateLessPath = [`${srcPath}template/*/**.less`];
+const template_wxml = () => {
+  return gulp
+    .src([...templateWxmlPath], { base: srcPath })
+    .pipe(gulp.dest(distPath));
+};
+gulp.task(template_wxml);
+
+const template_less = () => {
+  return gulp
+    .src([...templateLessPath], { base: srcPath })
+    .pipe(less())
+    .pipe(
+      rename({
+        extname: ".wxss"
+      })
+    )
+    .pipe(gulp.dest(distPath));
+};
+
+gulp.task(template_less);
+
 //打包
 gulp.task(
   "build",
   gulp.series(
     "clean",
     gulp.parallel(
+      "template_wxml",
+      "template_less",
       "page_wxml",
       "page_less",
       "page_js",
@@ -111,6 +137,8 @@ gulp.task("watch", () => {
   gulp.watch(jsPath, page_js);
   gulp.watch(jsonPath, page_json);
   gulp.watch(envUtilsPath, env_utils);
+  gulp.watch([...templateLessPath], template_less);
+  gulp.watch([...templateWxmlPath], template_wxml);
   gulp.watch(
     [...staticFontPath, ...staticJsPath, ...staticImagePath, ...root_files],
     static_copy
